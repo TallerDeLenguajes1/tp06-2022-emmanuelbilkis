@@ -2,61 +2,78 @@ using System;
 
 namespace punto1
 {
-    public class calculadora
+    class calculadora
     {
-        float suma(float num1, float num2)
+        double x;
+        double y;
+
+        public double suma(double x, double y)
         {
-            return num1 + num2;
+            return x + y ;
         }
 
-        float resta(float num1, float num2)
+        public double resta(double x, double y)
         {
-            return num1 - num2;
+            return x - y ;
         }
 
-        float producto(float num1, float num2)
+        public double producto(double x, double y)
         {
-            return num1 * num2;
+            return x * y ;
         }
 
-        float cociente(float num1, float num2)
+        public double cociente(double x, double y)
         {
-            return num1 / num2;
+            return x / y ;
         }
 
-        void limpiar()
+        public void limpiar(double x , double y)
         {
-            Console.ReadKey();
+            Console.WriteLine("Elija nuevos valores de x e y ");
+            x =Convert.ToDouble (Console.ReadLine());
+            y =Convert.ToDouble (Console.ReadLine());
         }
 
-        void calcula(float num1,float num2)
+        public void ecandenamientoOperaciones (string operacion, calculadora z,double x,double y)
         {
+            
 
-                var seed = Environment.TickCount;
-                var random = new Random(seed);
-                int aleatorio = random.Next(1, 6);
+            if (operacion == "suma")
+            {
+                x = z.suma(x,y);
+                y = z.suma(x,y);
 
-                while (aleatorio != 6)
-                {
-                    switch (aleatorio)
-                    {
-                        case 1 : suma(num1,num2);
-                                break;
+                Console.WriteLine("valor de x = "+ x + "| Valor de  y " + y );
+            }
 
-                        case 2 : resta(num1,num2);
-                                break;
-                        case 3 : producto(num1,num2);
-                                break;
-                        case 4 : cociente(num1,num2);
-                                break;
-                        case 5 : limpiar();
-                                break;
-                    }
+            if (operacion == "resta")
+            {
+                x = z.resta(x,y);
+                y = z.resta(x,y);
+                Console.WriteLine("valor de x = "+ x + "| Valor de  y " + y );
+            }
 
-                    aleatorio = random.Next(1, 6);
-                }
+            if (operacion == "producto")
+            {
+                x = z.producto(x,y);
+                y = z.producto(x,y);
+                Console.WriteLine("valor de x = "+ x + "| Valor de  y " + y );
+            }
 
+            if (operacion == "cociente")
+            {
+                x = z.cociente(x,y);
+                y = z.cociente(x,y);
+                Console.WriteLine("valor de x = "+ x + "| Valor de  y " + y );
+            }
 
-    }    }
+            if (operacion == "limpiar")
+            {
+                 z.limpiar(x,y);
+                 Console.WriteLine("valor de x = "+ x + "| Valor de  y " + y );
+            }
 
+        }
+    }
 }
+
